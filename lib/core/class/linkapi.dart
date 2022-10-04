@@ -5,6 +5,10 @@ class AppLink{
   // ================================ Test File ========================= //
   static const String testLink = "$serverLink/test.php";
 
+ // ================================ image Uploda ========================= //
+  static const String imageStatic = "$serverLink/upload";
+  static const String imageItemes = "$imageStatic/items/";
+  static const String imageCategories = "$imageStatic/upload/categories";
 
   // ================================ Auth ========================= //
   static const String signinLink ="$serverLink/Auth/signin.php";
