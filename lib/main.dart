@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       theme:_controller.appThem,
       initialBinding: InitialBindings(),
       getPages: routes,
+      //home:const MyTrasnformPage(),
     );
   }
 }

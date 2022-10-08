@@ -9,8 +9,10 @@ import 'package:ecommer_project/view/screens/Auth/Password/successpassword.dart'
 import 'package:ecommer_project/view/screens/Auth/Password/verfiycode.dart';
 import 'package:ecommer_project/view/screens/Auth/successsignup.dart';
 import 'package:ecommer_project/view/screens/Home/home.dart';
-import 'package:ecommer_project/view/screens/language.dart';
-import 'package:ecommer_project/view/screens/onboarding.dart';
+import 'package:ecommer_project/view/screens/Home/homescreen.dart';
+import 'package:ecommer_project/view/screens/Items/itemspage.dart';
+import 'package:ecommer_project/view/screens/splachScreen/language.dart';
+import 'package:ecommer_project/view/screens/splachScreen/onboarding.dart';
 import 'package:get/get.dart';
 
 
@@ -30,5 +32,7 @@ List<GetPage<dynamic>>? routes =[
   GetPage(name: AppRoute.verfingCodeSignUp, page: ()=>const VerfieyCodeSignUpPage()),
   // ================= Home =============//
   GetPage(name: AppRoute.homePage, page: ()=>const HomePage()),
+  GetPage(name: AppRoute.homeScreen, page: ()=>const HomeScreenPage()),
+  GetPage(name: AppRoute.itemsPage, page: ()=>const ItemsPage()),
 ];
 

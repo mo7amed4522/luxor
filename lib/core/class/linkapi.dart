@@ -24,4 +24,7 @@ class AppLink{
   
   // ================================ ForgetPassword ========================= //
   static const String home ="$serverLink/Home/home.php";
+
+  // ================================ Items ========================= //
+  static const String itemsVew ="$serverLink/items/items.php";
 }

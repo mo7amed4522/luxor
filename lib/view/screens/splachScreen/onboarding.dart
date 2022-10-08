@@ -3,8 +3,8 @@ import 'package:ecommer_project/core/constants/Theme/color.dart';
 import 'package:ecommer_project/view/widget/onBoardingWidget/pageview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../widget/onBoardingWidget/dotController.dart';
-import '../widget/onBoardingWidget/onBoardingButton.dart';
+import '../../widget/onBoardingWidget/dotController.dart';
+import '../../widget/onBoardingWidget/onBoardingButton.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});

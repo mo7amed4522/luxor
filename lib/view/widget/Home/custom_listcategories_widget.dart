@@ -11,54 +11,62 @@ class CustomListCategoriesWidget extends GetView<HomePageControllerImp> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
+      height: 100,
       child: ListView.separated(
         separatorBuilder: (context, index) => const SizedBox(
           width: 10,
         ),
         itemCount: controller.categories.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => 
-        Categories(
+        itemBuilder: (context, index) { 
+        return Categories(
+          i : index,
           categoriesModel: CategoriesModel.fromJson(
             controller.categories[index]
           ),
-        ),
+        );
+        }
       ),
     );
   }
 }
 
 
-class Categories extends StatelessWidget {
-  final CategoriesModel? categoriesModel;
-  const Categories({Key? key,this.categoriesModel}) : super(key: key);
+class Categories extends GetView<HomePageControllerImp>{
+  final CategoriesModel categoriesModel;
+  final int? i;
+  const Categories({Key? key,this.i,required this.categoriesModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: AppColor.tharedColor,
-                borderRadius: BorderRadius.circular(20),
+    return InkWell(
+      onTap: (){
+        controller.goToItems(controller.categories , i!);
+      },
+      child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColor.tharedColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                height: 70,
+                width: 70,
+                child: SvgPicture.network(
+                  "${AppLink.imageCategories}/${categoriesModel.cat_image}",
+                  color: AppColor.secoundColor,
+                ),
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              height: 70,
-              width: 70,
-              child: SvgPicture.network(
-                "${AppLink.imageCategories}/${categoriesModel!.cat_image}",
-                color: AppColor.secoundColor,
+              Text(
+                "${categoriesModel.cat_name}",
+                style: const TextStyle(
+                  fontSize: 13,
+                  color: AppColor.black,
+                ),
               ),
-            ),
-            Text(
-              "${categoriesModel!.cat_name}",
-              style: const TextStyle(
-                fontSize: 13,
-                color: AppColor.black,
-              ),
-            ),
-          ],
-        );
+            ],
+          ),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:ecommer_project/core/constants/routes/approutes.dart';
 import 'package:ecommer_project/core/servers/serves.dart';
 import 'package:ecommer_project/data/datasorcue/Home/homedata.dart';
 import 'package:get/get.dart';
@@ -7,6 +8,7 @@ import 'package:ecommer_project/core/class/statusrequest.dart';
 abstract class HomepageController extends GetxController { 
 initalData();
 getData();
+goToItems(List categories, int selectedCat);
 }
 
 class HomePageControllerImp extends HomepageController{
@@ -44,5 +46,13 @@ initalData(){
   void onInit() {
     initalData();
     super.onInit();
+  }
+
+  @override
+  goToItems(categories, selectedCat){
+    Get.toNamed(AppRoute.itemsPage, arguments: {
+      "categories": categories,
+      "selectedCat": selectedCat,
+    });
   }
 }

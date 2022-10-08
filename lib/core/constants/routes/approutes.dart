@@ -1,6 +1,7 @@
 class AppRoute{
   //================= Home =============//
   static const String start = "/";
+  static const String animation='/animation';
  // ================= On Boarding =============// 
   static const String onBoarding = "/onBoarding";
   // ================= Auth =============//
@@ -13,5 +14,8 @@ class AppRoute{
   static const String successSignUp = "/successSignUp";
   static const String verfingCodeSignUp = "/verfingCodeSignUp";
   // ================= Home =============//
-  static const String homePage = "/verfingCodeSignUp";
+  static const String homePage = "/homePage";
+  static const String homeScreen = "/homeScreenPage";
+   // ================= Items =============//
+  static const String itemsPage = "/itemsPage";
 }
