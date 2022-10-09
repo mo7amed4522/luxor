@@ -1,6 +1,7 @@
 import 'package:ecommer_project/controller/Home/homepage_controller.dart';
 import 'package:ecommer_project/core/class/linkapi.dart';
 import 'package:ecommer_project/core/constants/Theme/color.dart';
+import 'package:ecommer_project/core/func/database/translatedatabase.dart';
 import 'package:ecommer_project/data/models/categoriesmodel.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +42,7 @@ class Categories extends GetView<HomePageControllerImp>{
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        controller.goToItems(controller.categories , i!);
+        controller.goToItems(controller.categories , i!,categoriesModel.cat_id!);
       },
       child: Column(
             children: [
@@ -59,7 +60,7 @@ class Categories extends GetView<HomePageControllerImp>{
                 ),
               ),
               Text(
-                "${categoriesModel.cat_name}",
+                "${translateDataBase(categoriesModel.cat_name_ar,categoriesModel.cat_name)}",
                 style: const TextStyle(
                   fontSize: 13,
                   color: AppColor.black,

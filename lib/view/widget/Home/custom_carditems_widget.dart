@@ -1,7 +1,9 @@
+import 'package:ecommer_project/controller/Home/homepage_controller.dart';
 import 'package:ecommer_project/core/constants/Theme/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class CustomCardItemsWidget extends StatelessWidget {
+class CustomCardItemsWidget extends GetView<HomePageControllerImp> {
   final String? title;
   final String? body;
   const CustomCardItemsWidget({Key? key, this.body, this.title})
@@ -39,7 +41,8 @@ class CustomCardItemsWidget extends StatelessWidget {
           ),
           Positioned(
             top: -20,
-            right: -20,
+            right: controller.lang == "EN" ? -20 :null,
+            left: controller.lang == "AR" ? -20 :null,
             child: Container(
               height: 160,
               width: 160,

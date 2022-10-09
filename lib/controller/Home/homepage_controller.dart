@@ -8,7 +8,7 @@ import 'package:ecommer_project/core/class/statusrequest.dart';
 abstract class HomepageController extends GetxController { 
 initalData();
 getData();
-goToItems(List categories, int selectedCat);
+goToItems(List categories, int selectedCat,String categortID);
 }
 
 class HomePageControllerImp extends HomepageController{
@@ -19,6 +19,7 @@ late StatusRequest statusRequest;
 HomeData homeData = HomeData(Get.find());
 String? username;
 String? id;
+String? lang;
 
 @override 
 getData()async{
@@ -38,6 +39,7 @@ getData()async{
 
 @override
 initalData(){
+  lang = myServices.sharedPreferences.getString("lang");
   username = myServices.sharedPreferences.getString('username');
   id = myServices.sharedPreferences.getString('id');
 }
@@ -49,10 +51,11 @@ initalData(){
   }
 
   @override
-  goToItems(categories, selectedCat){
+  goToItems(categories, selectedCat,categortID){
     Get.toNamed(AppRoute.itemsPage, arguments: {
       "categories": categories,
       "selectedCat": selectedCat,
+      "catID":categortID,
     });
   }
 }

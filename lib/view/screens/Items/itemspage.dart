@@ -1,4 +1,5 @@
 import 'package:ecommer_project/controller/Home/itemscontroller.dart';
+import 'package:ecommer_project/core/class/handlinddataview.dart';
 import 'package:ecommer_project/data/models/itemesmodel.dart';
 import 'package:ecommer_project/view/widget/Home/custom_appbar_widget.dart';
 import 'package:ecommer_project/view/widget/Home/custom_gridviewitems_widget.dart';
@@ -15,8 +16,7 @@ class ItemsPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(25),
-        child: GetBuilder<ItemsControllerIMP>(
-          builder: (controller) => ListView(
+        child: ListView(
             children: [
               CustomAppBarWidget(
                 titleAppbar: "Find Product",
@@ -25,10 +25,13 @@ class ItemsPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               const CustomListCategoriesItemsWidget(),
-              GridView.builder(
+              GetBuilder<ItemsControllerIMP>(
+          builder: (controller) => HandlingDataView(
+             statusRequest: controller.statusRequest,
+              widget: GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 2,
+                  itemCount: controller.data.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     childAspectRatio: 0.7,
@@ -38,8 +41,9 @@ class ItemsPage extends StatelessWidget {
                       itemsModel: ItemsModel.fromJson(controller.data[index]),
                     );
                   }),
+              ),
+              ),
             ],
-          ),
         ),
       ),
     );
