@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommer_project/controller/Home/itemscontroller.dart';
 import 'package:ecommer_project/core/class/linkapi.dart';
 import 'package:ecommer_project/core/constants/Theme/color.dart';
 import 'package:ecommer_project/data/models/itemesmodel.dart';
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 
-class CustomGridViewItemsWidget extends StatelessWidget {
+class CustomGridViewItemsWidget extends GetView<ItemsControllerIMP>{
   final ItemsModel itemsModel;
   const CustomGridViewItemsWidget({Key? key,required this.itemsModel}) : super(key: key);
 
@@ -12,7 +14,9 @@ class CustomGridViewItemsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return 
       InkWell(
-        onTap:(){},
+        onTap:(){
+          controller.goToPageProductDetails(itemsModel);
+        },
         child: Card(
           child: Padding(
             padding: const EdgeInsets.all(10),
@@ -20,8 +24,11 @@ class CustomGridViewItemsWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CachedNetworkImage(
-                  imageUrl: "${AppLink.imageItemes}/${itemsModel.itemsImage!}",
+                Hero(
+                  tag: "${itemsModel.itemsid}",
+                  child: CachedNetworkImage(
+                    imageUrl: "${AppLink.imageItemes}/${itemsModel.itemsImage!}",
+                  ),
                 ),
                  Text(
                   itemsModel.itemsName!,

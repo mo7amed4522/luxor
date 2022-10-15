@@ -11,6 +11,7 @@ import 'package:ecommer_project/view/screens/Auth/successsignup.dart';
 import 'package:ecommer_project/view/screens/Home/home.dart';
 import 'package:ecommer_project/view/screens/Home/homescreen.dart';
 import 'package:ecommer_project/view/screens/Items/itemspage.dart';
+import 'package:ecommer_project/view/screens/product/productdetail.dart';
 import 'package:ecommer_project/view/screens/splachScreen/language.dart';
 import 'package:ecommer_project/view/screens/splachScreen/onboarding.dart';
 import 'package:get/get.dart';
@@ -34,5 +35,6 @@ List<GetPage<dynamic>>? routes =[
   GetPage(name: AppRoute.homePage, page: ()=>const HomePage()),
   GetPage(name: AppRoute.homeScreen, page: ()=>const HomeScreenPage()),
   GetPage(name: AppRoute.itemsPage, page: ()=>const ItemsPage()),
+  GetPage(name: AppRoute.productPage, page: ()=>const ProductDetailsPage()),
 ];
 

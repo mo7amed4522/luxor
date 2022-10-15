@@ -18,4 +18,5 @@ class AppRoute{
   static const String homeScreen = "/homeScreenPage";
    // ================= Items =============//
   static const String itemsPage = "/itemsPage";
+  static const String productPage = "/productPage";
 }

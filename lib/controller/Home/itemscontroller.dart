@@ -1,12 +1,15 @@
 import 'package:ecommer_project/core/class/statusrequest.dart';
+import 'package:ecommer_project/core/constants/routes/approutes.dart';
 import 'package:ecommer_project/core/func/Internet/handlinddata.dart';
 import 'package:ecommer_project/data/datasorcue/items/items_datasorcue.dart';
+import 'package:ecommer_project/data/models/itemesmodel.dart';
 import 'package:get/get.dart';
 
 abstract class ItemsController extends GetxController{
   intialData();
   changeCat(int value,String catValue);
   getItems(String categoryID);
+  goToPageProductDetails(ItemsModel itemsModel);
 } 
 class ItemsControllerIMP extends ItemsController{
 
@@ -49,5 +52,11 @@ class ItemsControllerIMP extends ItemsController{
       }
     }
     update();
+  }
+  @override
+  goToPageProductDetails(itemsModel) {
+    Get.toNamed(AppRoute.productPage ,arguments: {
+      "itemsmodel":itemsModel
+    });
   }
 }
